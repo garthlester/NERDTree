@@ -3,13 +3,17 @@
   "displayName": "NERDTree",
   "description": "⌨️ NERDTree for Visual Studio Code",
   "icon": "docs/icon.png",
-  "version": "1.2.1",
-  "publisher": "Llam4u",
+  "version": "1.0.0",
+  "publisher": "garthlester",
   "keywords": [
     "NERDTree",
     "vim",
     "vi",
-    "vscodevim"
+    "vscodevim",
+    "NERD",
+    "tree",
+    "explorer",
+    "netrw"
   ],
   "repository": {
     "type": "git",
@@ -51,7 +55,7 @@
     "keybindings": [
       {
         "key": "ctrl+n",
-        "command": "nerdtree.unfocusSidebarOrClose",
+        "command": "nerdtree.close",
         "when": "sideBarVisible && filesExplorerFocus"
       },
       {
@@ -75,24 +79,14 @@
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus &&  vim.mode == 'Insert'"
       },
       {
-        "key": "t",
-        "command": "nerdtree.openFileNewWindow",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
-      },
-      {
         "key": "enter",
         "command": "nerdtree.openFile",
         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
       },
       {
         "key": "enter",
-        "command": "list.select",
+        "command": "nerdtree.toggleNode",
         "when": "explorerViewletVisible && filesExplorerFocus && explorerResourceIsFolder && !inputFocus"
-      },
-      {
-        "key": "h",
-        "command": "list.collapse",
-        "when": "listFocus && !inputFocus"
       },
       {
         "key": "j",
@@ -103,41 +97,6 @@
         "key": "k",
         "command": "list.focusUp",
         "when": "listFocus && !inputFocus"
-      },
-      {
-        "key": "l",
-        "command": "list.select",
-        "when": "listFocus && !inputFocus"
-      },
-      {
-        "key": "m a",
-        "command": "workbench.files.action.createFileFromExplorer",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
-      },
-      {
-        "key": "m d",
-        "command": "moveFileToTrash",
-        "when": "explorerResourceMoveableToTrash && explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
-      },
-      {
-        "key": "m c",
-        "command": "filesExplorer.copy",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
-      },
-      {
-        "key": "m v",
-        "command": "filesExplorer.paste",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
-      },
-      {
-        "key": "m f",
-        "command": "workbench.files.action.createFolderFromExplorer",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
-      },
-      {
-        "key": "m r",
-        "command": "renameFile",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
       }
     ]
   },
