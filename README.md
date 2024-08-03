@@ -2,7 +2,7 @@
 
 The goal of this project is to mimic the functionality of [NERDTree](https://github.com/preservim/nerdtree) for vim as closely as possible.
 
-This project was originally forked from [https://github.com/61130061/NERDTree](https://github.com/61130061/NERDTree), but this ended up being nearly a full rewrite due to the original functionality deviating significantly from that of the NERDTree for vim.
+This project was originally forked from [https://github.com/61130061/NERDTree](https://github.com/61130061/NERDTree), but this ended up being nearly a full rewrite due to the original functionality deviating significantly from that of the original.
 
 ## Installation
 
@@ -34,7 +34,7 @@ If you want to use the default keybinding (Ctrl + n) to open NERDTree, you will 
 
 ## Usage
 
-You can start using NERDTree after installation. 
+You can start using NERDTree after installation.
 
 Below are the default keybindings and functions of the original NERDTree and their current state in this plugin
 
@@ -101,7 +101,8 @@ I'm not currently aware of how to spawn an interactive menu in VSCode, so I went
 
 There are some additional limitations:
 
-- In the original NERDTree, the copy command did the copying and the pasting, but I don't see a straightforward way to implement that behaviour given the limitations of VSCode. To compensate, I've added a separate paste command. 
+- In the original NERDTree, the copy command did the copying and the pasting, but I don't see a straightforward way to implement that behaviour given the limitations of VSCode. To compensate, I've added a separate paste command.
+
 - The move command on linux fills the role of both rename and cut/paste, however I can't find a way to do that in VSCode. Instead, `m` only renames, but I've added a separate cut command to make up for it.
 
 | Command| Default Keybinding | Description | Status |
