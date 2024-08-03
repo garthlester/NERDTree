@@ -2,7 +2,7 @@
 
 The goal of this project is to mimic the functionality of [NERDTree](https://github.com/preservim/nerdtree) for vim as closely as possible.
 
-This project was originally forked from [https://github.com/61130061/NERDTree](https://github.com/61130061/NERDTree), but this ended up being nearly a full rewrite due to the original functionality deviating significantly from that of the original.
+This project was originally forked from [https://github.com/61130061/NERDTree](https://github.com/61130061/NERDTree), but this ended up being nearly a full rewrite due to the original extension deviating significantly from the behaviour that of NERDTree for vim.
 
 ## Installation
 
@@ -10,18 +10,23 @@ This project was originally forked from [https://github.com/61130061/NERDTree](h
 
 TODO: Currently not available in the marketplace
 
+### From VSIX
+
+1. Download the latest VSIX file from [releases](https://github.com/garthlester/NERDTree/releases)
+2. Open vscode, press Ctrl+Shift+x to open the extensions panel. Click the '...' button near the top of the panel and select 'Install from VSIX' and navigate to the .VSIX file that was generated in the previous step.
+
 ### From Source
 
 1. Clone this repo and cd into it
 2. Make sure to have [Node.js](https://nodejs.org) installed
 3. Install vsce: `npm install -g @vscode/vsce`
 4. Install yarn: `npm install -g yarn`
-5. Generate a VSIX file: `vsce package`. If you get errors about other missing dependencies, go install them and repeat this step until it succeeds.
+5. Generate a VSIX file: `vsce package`. If you get errors about other missing dependencies, install them and repeat this step until it succeeds.
 6. Open vscode, press Ctrl+Shift+x to open the extensions panel. Click the '...' button near the top of the panel and select 'Install from VSIX' and navigate to the .VSIX file that was generated in the previous step.
 
-### VSCodeVim Compatibility
+### Vim Plugin Compatibility
 
-If you want to use the default keybinding (Ctrl + n) to open NERDTree, you will need to add the following to your settings.json file:
+If you are using the Vim plugin and want to use the default keybinding (Ctrl + n) to open NERDTree, you will need to add the following to your settings.json file:
 
 ```json
 {
@@ -32,12 +37,9 @@ If you want to use the default keybinding (Ctrl + n) to open NERDTree, you will 
 }
 ```
 
-## Usage
-
-You can start using NERDTree after installation.
+## Features and Roadmap
 
 Below are the default keybindings and functions of the original NERDTree and their current state in this plugin
-
 
 ### File Node Mappings
 
@@ -138,7 +140,7 @@ There are some additional limitations:
 | nerdtree.zoom | A | Zoom the NERDTree window | not planned |
 | nerdtree.help | ? | toggle help | planned |
 
-⁎ VSCode tabs correspond to vim buffers. VSCode does not have a corresponding feature to vim tabs, so NERDTree features related to vim tabs cannot be implemented.
+⁎ VSCode tabs more or less correspond to vim buffers. VSCode does not have a corresponding feature to vim tabs, so NERDTree features related to vim tabs cannot be implemented.
 
 † I'm not sure if the VSCode explorer has anything like NERDTree bookmarks. I may come back to these and investigate when the rest is functional
 
