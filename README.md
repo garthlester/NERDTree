@@ -1,39 +1,22 @@
-<h1 align="center"><img src="https://raw.githubusercontent.com/61130061/NERDTree/master/docs/icon.png" height="128"><br>NERDTree VSCode</h1>
+# NERDTree Improved
 
-<a href="https://marketplace.visualstudio.com/items?itemName=Llam4u.nerdtree"><img src="https://vsmarketplacebadge.apphb.com/version/Llam4u.NERDTree.svg"/></a>
-![Installs](https://vsmarketplacebadge.apphb.com/installs/Llam4u.NERDTree.svg)
+The goal of this project is to mimic the functionality of <TODO: find link> as closely as possible.
 
-This extension is [NERDTree](https://github.com/preservim/nerdtree) keybinding like for [Visual Studio Code](https://code.visualstudio.com).
-
-<details>
-	<summary>🗄 <strong>Table of Contents</strong> (click to expand)</summary>
-
-- [Installation](#installation)
-	- [Vim User](#vim-user)
-- [Usage](#usage)
-- [Setting](#setting)
-	- [Configuration](#configuration)
-- [Roadmap](https://github.com/61130061/NERDTree/blob/master/ROADMAP.md)
-
-</details>
-
-![Screen Shot](https://github.com/61130061/NERDTree/blob/master/docs/screen-rec.gif?raw=true)
+This project was originally forked from <TODO: find link>, but this ended up being nearly a full rewrite due to the original functionality deviating significantly from that of the NERDTree for vim.
 
 ## Installation
 
-1. You can install NERDTree for VSCode via [Marketplace](https://marketplace.visualstudio.com/items?itemName=Llam4u.nerdtree).
+### From Marketplace
 
-### Vim User
+You can install NERDTree for VSCode via <TODO: find link>
 
-There are conflicts between NERDTree VSCode keybindings and other extension.
-To use NERDTree, we have to disable some keybinding from other extension first ⚠️.
-If you use any below extension, you can setup following the guide below.
+### From Source
 
- > If you find any conflict with other extension please let us know [here](https://github.com/61130061/NERDTree/issues).
+TODO
 
-#### VSCodeVim
-- Add this setting to your VSCode setting `setting.js`. 
-This setting will disable `Ctrl + N` from VSCodeVim extension.
+### VSCodeVim Compatibility
+
+If you want to use the default keybinding (Ctrl + n) to open NERDTree, you will need to add the following to your settings.json file:
 
 ```json
 {
@@ -44,51 +27,81 @@ This setting will disable `Ctrl + N` from VSCodeVim extension.
 }
 ```
 
-
 ## Usage
 
-You can start using NERDTree after installation.
+You can start using NERDTree after installation. Below are the default keybindings and their current state.
 
-### Feature 
+*State Key:*
+1: Fully implemented.
+1s: VScode only allows 2 files onscreen in vertical split mode, so vertical splits behave slightly differently from how you would expect with vim+NERDTree. If 2 files are already open in split mode, the new file will replace the one that has not had focus the longest.
+2: Planned.
+3: Not planned.
+3t: VSCode tabs correspond to vim buffers. VSCode does not have a corresponding feature to vim tabs, so NERDTree features related to vim tabs cannot be implemented.
+3b: I'm not sure if the VSCode explorer has anything like NERDTree bookmarks. May come back to these and investigate when the rest is functional
+3s: To my knowledge, VSCode does not allow horizontal splits, so related features are not planned.
 
-We try to bring [NERDTree Vim](https://github.com/preservim/nerdtree) features to VSCode as much as possible.
-You can read our roadmap [here](https://github.com/61130061/NERDTree/blob/master/ROADMAP.md).
-This is all the features that are available and coming soon in the future.
+File Node Mappings
+| Command | Default Keybinding | Description | Status |
+| nerdtree.openFile | o | open in prev window | 2 |
+| nerdtree.previewFile | go | preview | 2 |
+| nerdtree.notImplemented | t | open in new tab | 3t |
+| nerdtree.notImplemented | T | open in new tab silenty | 3t |
+| nerdtree. | i | open split | 4s |
+| nerdtree. | gi | preview split | 4s |
+| nerdtree. | s | open vsplit | 2 |
+| nerdtree. | gs | preview vsplit | 2 |
+| nerdtree.openFile | <CR> | custom open | 2 |
 
-#### Guide
-- `CTRL + N` means shortcut (similar to normal shortcut).
-- `<LEADER> -> <COMMAND>` means press `<LEADER>` key first and then follow with `<COMMAND>` key
+Directory Node Mappings
+| Command | Default Keybinding | Description | Status |
+| nerdtree. | o | open or close node | 2 |
+| nerdtree. | O | recursively open node | 2 |
+| nerdtree. | t | open in new tab | 3t |
+| nerdtree. | T | open in new tab silently | 3t |
+| nerdtree. | <CR> | custom open | 2 |
+| nerdtree. | x | close parent of node | 2 |
+| nerdtree. | X | close all child nodes of current node recursively | 2 |
+| nerdtree. | e | explore selected dir | 3 |
 
-| **Keybinding** | **on Editor** | **on File Explorer** | Note |
-|:---:|:---:|:---:|:---:|
-| `CTRL + N` | Open and focus on file explorer view. (vim NORMAL mode only) | Close explorer view and change focus to editor view. | If you want to keep file explorer view open all the time, you can change `nerdtree.hideSidebarWhenOpenFile` setting following [here](#configuration). |
-| `J`, `K`, `H` and `L` | - | Moving around with VIM keybinding | `J` = `DOWN`, `K` = `UP`, `H` = `LEFT`, `L` = `RIGHT` |
-| `Enter` | - | Open selected `file` in current active editor or Expand folder tree | You can hide File Explorer every time you open a file by changing `nerdtree.alwaysShowSidebar` setting following [here](#configuration). |
-| `T` | - | Open selected `file` in a new tab | You can hide File Explorer every time you open a file by changing `nerdtree.alwaysShowSidebar` setting following [here](#configuration). |
-| `M -> A` | - | Create new `file` at cursor position. | - |
-| `M -> F` | - | Create new `folder` at cursor position. | - |
-| `M -> D` | - | Move a `file` to trash. | - |
-| `M -> C` | - | Copy a `file`. | - |
-| `M -> V` | - | Paste a `file`. | - |
-| `M -> R` | - | Rename a `file`. | - |
+Bookmark Table Mappings
+| Command | Default Keybinding | Description | Status |
+| nerdtree. | o | open bookmark | 3b |
+| nerdtree. | go | preview file | 3b |
+| nerdtree. | go | find dir in new tree | 3b |
+| nerdtree. | t | open in new tab | 3t |
+| nerdtree. | T | open in new tab silently | 3t |
+| nerdtree. | i | open split | 3b |
+| nerdtree. | gi | preview split | 3b |
+| nerdtree. | s | open vsplit | 3b |
+| nerdtree. | gs | preview vsplit | 3b |
+| nerdtree. | <CR> | custom open | 3b |
+| nerdtree. | D | delete bookmark | 3b |
 
+Tree navigation mappings
+| Command | Default Keybinding | Description | Status |
+| nerdtree. | C | change root tree node to selected dir | 3 |
+| nerdtree. | u | move tree root up a directory | 3 |
+| nerdtree. | U | move tree root up a directory but leave old root open | 3 |
+| nerdtree. | r | refresh cursor dir | 3 |
+| nerdtree. | R | refresh current root | 3 |
+| nerdtree. | m | show menu | 2 |
+| nerdtree. | cd | change the CWD to the selected dir | 3 |
+| nerdtree. | CD | change tree root to CWD | 3 |
 
-## Setting
+Tree filtering mappings
+| Command | Default Keybinding | Description (default value) | Status |
+| nerdtree. | I | hidden files (off) | 2 |
+| nerdtree. | f | file filters (on) | 2 |
+| nerdtree. | F | files (on) | 2 |
+| nerdtree. | B | bookmarks (off) | 2 |
+| nerdtree. | FL | file lines (off) | 3 |
 
-You can change all the settings from 
+Other mappings
+| Command | Default Keybinding | Description (default value) | Status |
+| nerdtree. | q | close the NERDTree window | 2 |
+| nerdtree. | A | Zoom the NERDTree window | 2 |
+| nerdtree. | ? | toggle help | 2 |
 
-- On Windows/Linux - File > Preferences > Settings > Extensions > NERDTree
-- On macOS - Code > Preferences > Settings > Extensions > NERDTree
-
-or in the `setting.json` file as an example below.
-
-```json
-{
-	...
-	"nerdtree.hideSidebarWhenOpenFile": false,
-	"nerdtree.alwaysShowSidebar": true,
-}
-```
 
 ### Configuration
 
