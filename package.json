@@ -1,7 +1,7 @@
 {
-  "name": "nerdtreeimp",
-  "displayName": "NERDTree Improved",
-  "description": "Better NERDTree for Visual Studio Code",
+  "name": "nerdtreerevamped",
+  "displayName": "NERDTree Revamped",
+  "description": "Yet another NERDTree for Visual Studio Code",
   "version": "0.1.0",
   "publisher": "garthlester",
   "keywords": [

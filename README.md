@@ -1,8 +1,8 @@
-# NERDTree Improved
+# NERDTree Revamped
 
 The goal of this project is to mimic the functionality of [NERDTree](https://github.com/preservim/nerdtree) for vim as closely as possible.
 
-This project was originally forked from [https://github.com/61130061/NERDTree](https://github.com/61130061/NERDTree), but this ended up being nearly a full rewrite due to the original extension deviating significantly from the behaviour that of NERDTree for vim.
+This project was originally forked from [https://github.com/61130061/NERDTree](https://github.com/61130061/NERDTree), but enough functionality has changed that it didn't seem wise to send a pull request and risk upsetting long-time users if it was accepted.
 
 ## Installation
 
