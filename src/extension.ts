@@ -25,18 +25,16 @@ export function nerdTreeNotImplemented() {
 }
 export function nerdTreeOpenFile(){
     vscode.commands.executeCommand('explorer.openAndPassFocus');
-    if (vscode.workspace.getConfiguration().get('nerdtree.hideSidebarWhenOpenFile')) {
-        vscode.commands.executeCommand('workbench.action.toggleSidebarVisibility');
-    }
 }
 export function nerdTreePreviewFile() {
-    nerdTreeNotImplemented();
+    vscode.commands.executeCommand('filesExplorer.openFilePreserveFocus');
 }
 export function nerdTreeOpenVSplit() {
-    nerdTreeNotImplemented();
+    vscode.commands.executeCommand('explorer.openToSide');
 }
 export function nerdTreePreviewVSplit() {
-    nerdTreeNotImplemented();
+    vscode.commands.executeCommand('explorer.openToSide');
+    vscode.commands.executeCommand('workbench.files.action.focusFilesExplorer');
 }
 export function nerdTreeToggleNode() {
     vscode.commands.executeCommand('list.select');
@@ -45,7 +43,7 @@ export function nerdTreeRecursivelyOpenNode() {
     nerdTreeNotImplemented();
 }
 export function nerdTreeCloseParentOfNode() {
-    nerdTreeNotImplemented();
+    vscode.commands.executeCommand('workbench.files.action.collapseExplorerFolders');
 }
 export function nerdTreeCloseChildNodesRecursively() {
     nerdTreeNotImplemented();

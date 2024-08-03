@@ -33,38 +33,43 @@ You can start using NERDTree after installation. Below are the default keybindin
 
 *State Key:*
 1: Fully implemented.
-1s: VScode only allows 2 files onscreen in vertical split mode, so vertical splits behave slightly differently from how you would expect with vim+NERDTree. If 2 files are already open in split mode, the new file will replace the one that has not had focus the longest.
 2: Planned.
 3: Not planned.
 3t: VSCode tabs correspond to vim buffers. VSCode does not have a corresponding feature to vim tabs, so NERDTree features related to vim tabs cannot be implemented.
 3b: I'm not sure if the VSCode explorer has anything like NERDTree bookmarks. May come back to these and investigate when the rest is functional
 3s: To my knowledge, VSCode does not allow horizontal splits, so related features are not planned.
 
-File Node Mappings
+###File Node Mappings
+
 | Command | Default Keybinding | Description | Status |
-| nerdtree.openFile | o | open in prev window | 2 |
-| nerdtree.previewFile | go | preview | 2 |
+|---|---|---|---|
+| nerdtree.openFile | o | open in prev window | 1 |
+| nerdtree.previewFile | go | preview | 1 |
 | nerdtree.notImplemented | t | open in new tab | 3t |
 | nerdtree.notImplemented | T | open in new tab silenty | 3t |
 | nerdtree. | i | open split | 4s |
 | nerdtree. | gi | preview split | 4s |
-| nerdtree. | s | open vsplit | 2 |
+| nerdtree. | s | open vsplit | 1 |
 | nerdtree. | gs | preview vsplit | 2 |
-| nerdtree.openFile | <CR> | custom open | 2 |
+| nerdtree.openFile | <CR> | custom open | 1 |
 
-Directory Node Mappings
+###Directory Node Mappings
+
 | Command | Default Keybinding | Description | Status |
+|---|---|---|---|
 | nerdtree. | o | open or close node | 2 |
 | nerdtree. | O | recursively open node | 2 |
 | nerdtree. | t | open in new tab | 3t |
 | nerdtree. | T | open in new tab silently | 3t |
 | nerdtree. | <CR> | custom open | 2 |
-| nerdtree. | x | close parent of node | 2 |
+| nerdtree. | x | close parent of node | 1 |
 | nerdtree. | X | close all child nodes of current node recursively | 2 |
 | nerdtree. | e | explore selected dir | 3 |
 
-Bookmark Table Mappings
+###Bookmark Table Mappings
+
 | Command | Default Keybinding | Description | Status |
+|---|---|---|---|
 | nerdtree. | o | open bookmark | 3b |
 | nerdtree. | go | preview file | 3b |
 | nerdtree. | go | find dir in new tree | 3b |
@@ -77,8 +82,10 @@ Bookmark Table Mappings
 | nerdtree. | <CR> | custom open | 3b |
 | nerdtree. | D | delete bookmark | 3b |
 
-Tree navigation mappings
+###Tree navigation mappings
+
 | Command | Default Keybinding | Description | Status |
+|---|---|---|---|
 | nerdtree. | C | change root tree node to selected dir | 3 |
 | nerdtree. | u | move tree root up a directory | 3 |
 | nerdtree. | U | move tree root up a directory but leave old root open | 3 |
@@ -88,20 +95,23 @@ Tree navigation mappings
 | nerdtree. | cd | change the CWD to the selected dir | 3 |
 | nerdtree. | CD | change tree root to CWD | 3 |
 
-Tree filtering mappings
+###Tree filtering mappings
+
 | Command | Default Keybinding | Description (default value) | Status |
+|---|---|---|---|
 | nerdtree. | I | hidden files (off) | 2 |
 | nerdtree. | f | file filters (on) | 2 |
 | nerdtree. | F | files (on) | 2 |
 | nerdtree. | B | bookmarks (off) | 2 |
 | nerdtree. | FL | file lines (off) | 3 |
 
-Other mappings
+###Other mappings
+
 | Command | Default Keybinding | Description (default value) | Status |
+|---|---|---|---|
 | nerdtree. | q | close the NERDTree window | 2 |
 | nerdtree. | A | Zoom the NERDTree window | 2 |
 | nerdtree. | ? | toggle help | 2 |
-
 
 ### Configuration
 

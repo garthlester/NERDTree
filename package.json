@@ -1,8 +1,7 @@
 {
-  "name": "nerdtree",
-  "displayName": "NERDTree",
-  "description": "⌨️ NERDTree for Visual Studio Code",
-  "icon": "docs/icon.png",
+  "name": "nerdtreeimp",
+  "displayName": "NERDTree Improved",
+  "description": "Better NERDTree for Visual Studio Code",
   "version": "1.0.0",
   "publisher": "garthlester",
   "keywords": [
@@ -17,11 +16,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/61130061/NERDTree.git"
+    "url": "https://github.com/garthlester/NERDTree"
   },
-  "homepage": "https://github.com/61130061/NERDTree",
+  "homepage": "https://github.com/garthlester/NERDTree",
   "bugs": {
-    "url": "https://github.com/61130061/NERDTree/issues"
+    "url": "https://github.com/garthlester/NERDTree/issues"
   },
   "engines": {
     "vscode": "^1.71.0"
@@ -38,17 +37,17 @@
   "main": "./dist/extension.js",
   "contributes": {
     "configuration": {
-      "title": "NERDTree",
+      "title": "NERDTree Improved",
       "properties": {
         "nerdtree.hideSidebarWhenOpenFile": {
           "type": "boolean",
           "default": true,
-          "description": "If this option is checked ✅, the sidebar will be hidden, after you open a file from the Explorer view with NERDTree key ⌨️ (t) or (Enter). Otherwise ❌, nothing will happend."
+          "description": "If this option is checked ✅, the sidebar will be hidden, after you open a file from the Explorer view with NERDTree key ⌨️ (t) or (Ente). Otherwise ❌, nothing will happend."
         },
         "nerdtree.alwaysShowSidebar": {
           "type": "boolean",
           "default": false,
-          "description": "If this option is checked ✅, the sidebar will be shown everytime you switch between editor and file explorer with NERDTree shortcut ⌨️ (ctrl + n). Otherwise ❌, sidebar will be toggled instead"
+          "description": "If this option is checked ✅, the sidebar will be shown everytime you switch between editor and file explorer with NERDTree shortcut ⌨️ ctrl + n). Otherwise ❌, sidebar will be toggled instead"
         }
       }
     },
@@ -84,9 +83,38 @@
         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
       },
       {
+        "key": "o",
+        "command": "-list.toggleExpand"
+      },
+      {
+        "key": "o",
+        "command": "nerdtree.openFile",
+        "when": "foldersViewVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
+      },
+      {
+        "key": "g o",
+        "command": "nerdtree.previewFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
+      },
+      {
+        "key": "s",
+        "command": "nerdtree.openVSplit",
+        "when": "foldersViewVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
+      },
+      {
+        "key": "g s",
+        "command": "nerdtree.previewVSplit",
+        "when": "foldersViewVisible && filesExplorerFocus && !explorerResourceIsFolder && !inputFocus"
+      },
+      {
         "key": "enter",
         "command": "nerdtree.toggleNode",
         "when": "explorerViewletVisible && filesExplorerFocus && explorerResourceIsFolder && !inputFocus"
+      },
+      {
+        "key": "x",
+        "command": "nerdtree.closeParentOfNode",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
       },
       {
         "key": "j",
