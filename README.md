@@ -8,12 +8,12 @@ This project was originally forked from [https://github.com/61130061/NERDTree](h
 
 ### From Marketplace
 
-You can install NERDTree for VSCode via <TODO: find link>
+TODO: Currently not available in the marketplace
 
 ### From Source
 
 1. Clone this repo and cd into it
-2. Make sure to have Node.js installed
+2. Make sure to have [Node.js](https://nodejs.org) installed
 3. Install vsce: `npm install -g @vscode/vsce`
 4. Install yarn: `npm install -g yarn`
 5. Generate a VSIX file: `vsce package`. If you get errors about other missing dependencies, go install them and repeat this step until it succeeds.
@@ -45,8 +45,8 @@ Below are the default keybindings and functions of the original NERDTree and the
 |---|---|---|---|
 | nerdtree.openFile | o | open in prev window | working |
 | nerdtree.previewFile | go | preview | working |
-| nerdtree.notImplemented | t | open in new tab | not planned * |
-| nerdtree.notImplemented | T | open in new tab silenty | not planned * |
+| nerdtree.notImplemented | t | open in new tab | not planned ⁎ |
+| nerdtree.notImplemented | T | open in new tab silenty | not planned ⁎ |
 | nerdtree. | i | open split | not planned ‡ |
 | nerdtree. | gi | preview split | not planned ‡ |
 | nerdtree. | s | open vsplit | working |
@@ -59,8 +59,8 @@ Below are the default keybindings and functions of the original NERDTree and the
 |---|---|---|---|
 | nerdtree. | o | open or close node | planned |
 | nerdtree. | O | recursively open node | planned |
-| nerdtree. | t | open in new tab | not planned * |
-| nerdtree. | T | open in new tab silently | not planned * |
+| nerdtree. | t | open in new tab | not planned ⁎ |
+| nerdtree. | T | open in new tab silently | not planned ⁎ |
 | nerdtree. | <CR> | custom open | working |
 | nerdtree. | x | close parent of node | working |
 | nerdtree. | X | close all child nodes of current node recursively | planned |
@@ -73,8 +73,8 @@ Below are the default keybindings and functions of the original NERDTree and the
 | nerdtree. | o | open bookmark | not planned † |
 | nerdtree. | go | preview file | not planned † |
 | nerdtree. | go | find dir in new tree | not planned † |
-| nerdtree. | t | open in new tab | not planned * |
-| nerdtree. | T | open in new tab silently | not planned * |
+| nerdtree. | t | open in new tab | not planned ⁎ |
+| nerdtree. | T | open in new tab silently | not planned ⁎ |
 | nerdtree. | i | open split | not planned †‡ |
 | nerdtree. | gi | preview split | not planned †‡ |
 | nerdtree. | s | open vsplit | not planned † |
@@ -113,6 +113,8 @@ Below are the default keybindings and functions of the original NERDTree and the
 | nerdtree. | A | Zoom the NERDTree window | not planned |
 | nerdtree. | ? | toggle help | planned |
 
-* VSCode tabs correspond to vim buffers. VSCode does not have a corresponding feature to vim tabs, so NERDTree features related to vim tabs cannot be implemented.
+⁎ VSCode tabs correspond to vim buffers. VSCode does not have a corresponding feature to vim tabs, so NERDTree features related to vim tabs cannot be implemented.
+
 † I'm not sure if the VSCode explorer has anything like NERDTree bookmarks. I may come back to these and investigate when the rest is functional
+
 ‡ To my knowledge, VSCode does not allow horizontal splits, so related features are not planned.
