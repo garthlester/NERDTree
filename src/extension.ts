@@ -17,8 +17,8 @@ export function activate(context: vscode.ExtensionContext) {
     nerdTreeCommand(context, 'nerdtree.help', nerdTreeHelp);
 }
 
-export function nerdTreeCommand(context: vscode.ExtensionContext, name: string, func: Function) {
-    context.subscriptions.push(vscode.commands.registerCommand(name, func));
+export function nerdTreeCommand(context: vscode.ExtensionContext, name: string, f: Function) {
+    context.subscriptions.push(vscode.commands.registerCommand(name, ()=>f()));
 }
 export function nerdTreeNotImplemented() {
     vscode.commands.executeCommand('vscode.window.showErrorMessage', 'NERDTree: function not implemented');
