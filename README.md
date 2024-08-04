@@ -106,13 +106,13 @@ I'm not currently aware of how to spawn an interactive menu in VSCode, so I went
 | nerdtree.menu.add | a | add a child node | working |
 | nerdtree.menu.move | m | move the current node | working |
 | nerdtree.menu.delete | d | delete the current node | working |
-| nerdtree.menu.reveal | r | reveal the current node in file manager | planned |
-| nerdtree.menu.open | o | open the current node with system editor | not planned |
+| nerdtree.menu.reveal | r | reveal the current node in file manager | working |
+| nerdtree.menu.open | o | open the current node with system editor | working |
 | nerdtree.menu.copy | c | copy the current node | working |
-| nerdtree.menu.copyPath | p | copy path to the clipboard | planned |
+| nerdtree.menu.copyPath | p | copy path to the clipboard | working |
 | nerdtree.menu.list | l | list the current node | not planned |
 | nerdtree.menu.changePermissions | C | Change node permissions | not planned |
-| nerdtree.menu.runSystemCommand | s | Run system command in this directory | planned |
+| nerdtree.menu.runSystemCommand | s | Run system command in this directory | working |
 
 ### Tree filtering mappings
 

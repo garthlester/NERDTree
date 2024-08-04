@@ -21,8 +21,6 @@ export function activate(context: vscode.ExtensionContext) {
         nerdTreeCommand(context, 'nerdtree.menu.reveal', nerdTreeMenuReveal);
         nerdTreeCommand(context, 'nerdtree.menu.open', nerdTreeMenuOpen);
         nerdTreeCommand(context, 'nerdtree.menu.copy', nerdTreeMenuCopy);
-        nerdTreeCommand(context, 'nerdtree.menu.cut', nerdTreeMenuCut);
-        nerdTreeCommand(context, 'nerdtree.menu.paste', nerdTreeMenuPaste);
         nerdTreeCommand(context, 'nerdtree.menu.copyPath', nerdTreeMenuCopyPath);
         nerdTreeCommand(context, 'nerdtree.menu.list', nerdTreeMenuList);
         nerdTreeCommand(context, 'nerdtree.menu.changePermissions', nerdTreeMenuChangePermissions);
@@ -44,14 +42,31 @@ export async function nerdTreeNotImplemented() {
 }
 
 export async function nerdTreeMenuAdd() {
-    await vscode.commands.executeCommand('workbench.files.action.createFileFromExplorer');
+    const original = await getPathOfExplorerSelection();
+    const dir = await getFolder(original);
+    const opts =
+    {
+        title: "Add:",
+        value: dir.fsPath,
+        placeHolder: "Enter a path",
+        prompt: "Enter the file name",
+        password: false,
+        ignoreFocusOut: false
+    };
+    vscode.window.showInputBox(opts)
+        .then(name => {
+            if (name) {
+                //TODO: Make sure we can't use this to replace an existing file
+                vscode.workspace.fs.writeFile(vscode.Uri.file(name), new Uint8Array());
+            }
+        });
 }
 
 export async function nerdTreeMenuMove() {
     const original = await getPathOfExplorerSelection();
     const opts =
     {
-        title: "New path",
+        title: "Move:",
         value: original.fsPath,
         placeHolder: "Enter a path",
         prompt: "Enter the new path",
@@ -67,36 +82,49 @@ export async function nerdTreeMenuMove() {
 }
 
 export async function nerdTreeMenuDelete() {
-    //TODO: will this work for folders too?
-    //TODO: use a workspace edit for more fine-grained control
-    //var edit = new vscode.WorkspaceEdit();
-    //edit.deleteFile(
-    await vscode.commands.executeCommand('moveFileToTrash');
+    const path = await getPathOfExplorerSelection();
+    const opts =
+    {
+        title: "Move:",
+        placeHolder: "Enter a path",
+        prompt: "Are you sure you want to delete " + path.fsPath + " yN",
+        password: false,
+        ignoreFocusOut: false
+    };
+    vscode.window.showInputBox(opts)
+        .then(result => {
+            if (result && result == "y") {
+                vscode.workspace.fs.delete(path);
+            }
+        });
 }
 
 export async function nerdTreeMenuReveal() {
-    //TODO: there should be a built-in reveal command. Look at default keybinding for Ctrl+Alt+R
-    await nerdTreeNotImplemented();
+    await vscode.commands.executeCommand('revealFileInOS');
 }
 
 export async function nerdTreeMenuOpen() {
-    //TODO: look into vscode.env.openExternal
-    await nerdTreeNotImplemented();
+    const path = await getPathOfExplorerSelection();
+    vscode.env.openExternal(path);
 }
 
 export async function nerdTreeMenuCopy() {
-    //TODO: use an input box to get destimation so we don't need a separate paste command
-    await vscode.commands.executeCommand('filesExplorer.copy');
-}
-
-export async function nerdTreeMenuCut() {
-    //TODO: remove once move is working
-    await vscode.commands.executeCommand('filesExplorer.cut');
-}
-
-export async function nerdTreeMenuPaste() {
-    //TODO: remove once move is working
-    await vscode.commands.executeCommand('filesExplorer.paste');
+    const original = await getPathOfExplorerSelection();
+    const opts =
+    {
+        title: "Copy",
+        value: original.fsPath,
+        placeHolder: "Enter a path",
+        prompt: "Enter the new path",
+        password: false,
+        ignoreFocusOut: false
+    };
+    vscode.window.showInputBox(opts)
+        .then(name => {
+            if (name) {
+                vscode.workspace.fs.copy(original, vscode.Uri.file(name))
+            }
+        });
 }
 
 export async function nerdTreeMenuCopyPath() {
@@ -107,7 +135,23 @@ export async function nerdTreeMenuList() { nerdTreeNotImplemented(); }
 
 export async function nerdTreeMenuChangePermissions() { nerdTreeNotImplemented(); }
 
-export async function nerdTreeMenuRunSystemCommand() { nerdTreeNotImplemented(); }
+export async function nerdTreeMenuRunSystemCommand() {
+    const opts =
+    {
+        title: "Run",
+        value: "",
+        placeHolder: ">",
+        prompt: "Enter a command to run",
+        password: false,
+        ignoreFocusOut: false
+    };
+    vscode.window.showInputBox(opts)
+        .then(cmd => {
+            if (cmd) {
+                vscode.window.activeTerminal?.sendText(cmd + "\n");
+            }
+        });
+}
 
 export async function getPathOfExplorerSelection(): Promise<vscode.Uri> {
     //You'd think this would be simple, but it turns out getting the currently
@@ -129,6 +173,31 @@ export async function getPathOfExplorerSelection(): Promise<vscode.Uri> {
     await vscode.env.clipboard.writeText(clipboardCache);
 
     return vscode.Uri.file(path);
+}
+
+export async function getFolder(uri: vscode.Uri): Promise<vscode.Uri> {
+    //Original might be a file, or it might be a folder.
+    //If it's a folder, then great, but if it's a file, we need to get the path
+    //for the folder that contains it:
+    const stats = await vscode.workspace.fs.stat(uri);
+    if (!stats) {
+        throw URIError("Could not parse URI");
+    }
+
+    if (stats.type == vscode.FileType.File) {
+        //TODO: I'm sure there's a more robust way to do this from vscode.workspace.fs
+        const dir = uri.fsPath.match('(.*\/).*');
+
+        if (dir) {
+            return vscode.Uri.file(dir[0]);
+        }
+        else {
+            throw URIError("Could not parse URI");
+        }
+
+    } else {
+        return uri;
+    }
 }
 
 export async function nerdTreeOpenFile() {
