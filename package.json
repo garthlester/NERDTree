@@ -142,16 +142,6 @@
         "when": "foldersViewVisible && filesExplorerFocus && !inputFocus"
       },
       {
-        "key": "m x",
-        "command": "nerdtree.menu.cut",
-        "when": "foldersViewVisible && filesExplorerFocus && !inputFocus"
-      },
-      {
-        "key": "m v",
-        "command": "nerdtree.menu.paste",
-        "when": "foldersViewVisible && filesExplorerFocus && !inputFocus"
-      },
-      {
         "key": "m p",
         "command": "nerdtree.menu.copyPath",
         "when": "foldersViewVisible && filesExplorerFocus && !inputFocus"
