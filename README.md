@@ -109,14 +109,14 @@ There are some additional limitations:
 
 | Command| Default Keybinding | Description | Status |
 |---|---|---|---|
-| nerdtree.menu.add | a | add a child node | planned |
-| nerdtree.menu.move | m | move the current node | planned |
-| nerdtree.menu.delete | d | delete the current node | planned |
+| nerdtree.menu.add | a | add a child node | working |
+| nerdtree.menu.move | m | move the current node | working |
+| nerdtree.menu.delete | d | delete the current node | working |
 | nerdtree.menu.reveal | r | reveal the current node in file manager | planned |
 | nerdtree.menu.open | o | open the current node with system editor | not planned |
-| nerdtree.menu.copy | c | copy the current node | planned |
-| nerdtree.menu.copy | x | cut the current node | planned |
-| nerdtree.menu.paste | v | paste | planned |
+| nerdtree.menu.copy | c | copy the current node | working |
+| nerdtree.menu.copy | x | cut the current node | working |
+| nerdtree.menu.paste | v | paste | working |
 | nerdtree.menu.copyPath | p | copy path to the clipboard | planned |
 | nerdtree.menu.list | l | list the current node | not planned |
 | nerdtree.menu.changePermissions | C | Change node permissions | not planned |
