@@ -2,46 +2,46 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
     try {
-        nerdTreeCommand(context, 'nerdtree.notImplemented', nerdTreeNotImplemented);
-        nerdTreeCommand(context, 'nerdtree.openFile', nerdTreeOpenFile);
-        nerdTreeCommand(context, 'nerdtree.previewFile', nerdTreePreviewFile);
-        nerdTreeCommand(context, 'nerdtree.openVSplit', nerdTreeOpenVSplit);
-        nerdTreeCommand(context, 'nerdtree.previewVSplit', nerdTreePreviewVSplit);
-        nerdTreeCommand(context, 'nerdtree.toggleNode', nerdTreeToggleNode);
-        nerdTreeCommand(context, 'nerdtree.recursivelyOpenNode', nerdTreeRecursivelyOpenNode);
-        nerdTreeCommand(context, 'nerdtree.closeParentOfNode', nerdTreeCloseParentOfNode);
-        nerdTreeCommand(context, 'nerdtree.recursivelyCloseChildren', nerdTreeCloseChildNodesRecursively);
-        nerdTreeCommand(context, 'nerdtree.toggleHiddenFiles', nerdTreeToggleHiddenFiles);
-        nerdTreeCommand(context, 'nerdtree.close', nerdTreeClose);
-        nerdTreeCommand(context, 'nerdtree.zoom', nerdTreeZoom);
-        nerdTreeCommand(context, 'nerdtree.help', nerdTreeHelp);
-        nerdTreeCommand(context, 'nerdtree.menu.add', nerdTreeMenuAdd);
-        nerdTreeCommand(context, 'nerdtree.menu.move', nerdTreeMenuMove);
-        nerdTreeCommand(context, 'nerdtree.menu.delete', nerdTreeMenuDelete);
-        nerdTreeCommand(context, 'nerdtree.menu.reveal', nerdTreeMenuReveal);
-        nerdTreeCommand(context, 'nerdtree.menu.open', nerdTreeMenuOpen);
-        nerdTreeCommand(context, 'nerdtree.menu.copy', nerdTreeMenuCopy);
-        nerdTreeCommand(context, 'nerdtree.menu.copyPath', nerdTreeMenuCopyPath);
-        nerdTreeCommand(context, 'nerdtree.menu.list', nerdTreeMenuList);
-        nerdTreeCommand(context, 'nerdtree.menu.changePermissions', nerdTreeMenuChangePermissions);
-        nerdTreeCommand(context, 'nerdtree.menu.runSystemCommand', nerdTreeMenuRunSystemCommand);
+        register(context, 'nerdtree.notImplemented', notImplemented);
+        register(context, 'nerdtree.openFile', openFile);
+        register(context, 'nerdtree.previewFile', previewFile);
+        register(context, 'nerdtree.openVSplit', openVSplit);
+        register(context, 'nerdtree.previewVSplit', previewVSplit);
+        register(context, 'nerdtree.toggleNode', toggleNode);
+        register(context, 'nerdtree.recursivelyOpenNode', recursivelyOpenNode);
+        register(context, 'nerdtree.closeParentOfNode', closeParentOfNode);
+        register(context, 'nerdtree.recursivelyCloseChildren', closeChildNodesRecursively);
+        register(context, 'nerdtree.toggleHiddenFiles', toggleHiddenFiles);
+        register(context, 'nerdtree.close', close);
+        register(context, 'nerdtree.zoom', zoom);
+        register(context, 'nerdtree.help', help);
+        register(context, 'nerdtree.menu.add', menuAdd);
+        register(context, 'nerdtree.menu.move', menuMove);
+        register(context, 'nerdtree.menu.delete', menuDelete);
+        register(context, 'nerdtree.menu.reveal', menuReveal);
+        register(context, 'nerdtree.menu.open', menuOpen);
+        register(context, 'nerdtree.menu.copy', menuCopy);
+        register(context, 'nerdtree.menu.copyPath', menuCopyPath);
+        register(context, 'nerdtree.menu.list', menuList);
+        register(context, 'nerdtree.menu.changePermissions', menuChangePermissions);
+        register(context, 'nerdtree.menu.runSystemCommand', menuRunSystemCommand);
     } catch (error) {
         vscode.commands.executeCommand('vscode.window.showErrorMessage', `${error}`);
     }
 }
 
 //Just to reduce boilerplate
-export function nerdTreeCommand(context: vscode.ExtensionContext, name: string, f: Function) {
+function register(context: vscode.ExtensionContext, name: string, f: Function) {
     context.subscriptions.push(vscode.commands.registerCommand(name, () => f()));
 }
 
-export async function nerdTreeNotImplemented() {
+async function notImplemented() {
     if (!vscode.workspace.getConfiguration().get('nerdtree.suppressNotImplementedErrors')) {
         await vscode.commands.executeCommand('vscode.window.showErrorMessage', 'NERDTree: function not implemented');
     }
 }
 
-export async function nerdTreeMenuAdd() {
+async function menuAdd() {
     const original = await getPathOfExplorerSelection();
     const dir = await getFolder(original);
 
@@ -73,7 +73,7 @@ export async function nerdTreeMenuAdd() {
         });
 }
 
-export async function nerdTreeMenuMove() {
+async function menuMove() {
     const original = await getPathOfExplorerSelection();
     const opts =
     {
@@ -92,12 +92,12 @@ export async function nerdTreeMenuMove() {
         });
 }
 
-export async function nerdTreeMenuDelete() {
+async function menuDelete() {
     const path = await getPathOfExplorerSelection();
     const opts =
     {
         title: "Delete:",
-        placeHolder: "Enter a path",
+        placeHolder: "yN",
         prompt: "Are you sure you want to delete " + path.fsPath + " yN",
         password: false,
         ignoreFocusOut: false
@@ -110,16 +110,16 @@ export async function nerdTreeMenuDelete() {
         });
 }
 
-export async function nerdTreeMenuReveal() {
+async function menuReveal() {
     await vscode.commands.executeCommand('revealFileInOS');
 }
 
-export async function nerdTreeMenuOpen() {
+async function menuOpen() {
     const path = await getPathOfExplorerSelection();
     vscode.env.openExternal(path);
 }
 
-export async function nerdTreeMenuCopy() {
+async function menuCopy() {
     const original = await getPathOfExplorerSelection();
     const opts =
     {
@@ -138,15 +138,15 @@ export async function nerdTreeMenuCopy() {
         });
 }
 
-export async function nerdTreeMenuCopyPath() {
+async function menuCopyPath() {
     await vscode.commands.executeCommand('copyFilePath');
 }
 
-export async function nerdTreeMenuList() { nerdTreeNotImplemented(); }
+async function menuList() { notImplemented(); }
 
-export async function nerdTreeMenuChangePermissions() { nerdTreeNotImplemented(); }
+async function menuChangePermissions() { notImplemented(); }
 
-export async function nerdTreeMenuRunSystemCommand() {
+async function menuRunSystemCommand() {
     const opts =
     {
         title: "Run:",
@@ -164,7 +164,7 @@ export async function nerdTreeMenuRunSystemCommand() {
         });
 }
 
-export async function getPathOfExplorerSelection(): Promise<vscode.Uri> {
+async function getPathOfExplorerSelection(): Promise<vscode.Uri> {
     //You'd think this would be simple, but it turns out getting the currently
     //selected item in file explorer has been a thorn in developer's collective
     //sides for a while now:
@@ -186,7 +186,7 @@ export async function getPathOfExplorerSelection(): Promise<vscode.Uri> {
     return vscode.Uri.file(path);
 }
 
-export async function getFolder(uri: vscode.Uri): Promise<vscode.Uri> {
+async function getFolder(uri: vscode.Uri): Promise<vscode.Uri> {
     //Original might be a file, or it might be a folder.
     //If it's a folder, then great, but if it's a file, we need to get the path
     //for the folder that contains it:
@@ -218,39 +218,38 @@ export async function getFolder(uri: vscode.Uri): Promise<vscode.Uri> {
     }
 }
 
-//TODO: do I really need to be exporting all these functions, or just attach/detach?
-export async function nerdTreeOpenFile() {
+async function openFile() {
     await vscode.commands.executeCommand('explorer.openAndPassFocus');
 }
 
-export async function nerdTreePreviewFile() {
+async function previewFile() {
     await vscode.commands.executeCommand('filesExplorer.openFilePreserveFocus');
 }
 
-export async function nerdTreeOpenVSplit() {
+async function openVSplit() {
     await vscode.commands.executeCommand('explorer.openToSide');
 }
 
-export async function nerdTreePreviewVSplit() {
+async function previewVSplit() {
     await vscode.commands.executeCommand('explorer.openToSide');
     await vscode.commands.executeCommand('workbench.files.action.focusFilesExplorer');
 }
 
-export async function nerdTreeToggleNode() {
+async function toggleNode() {
     await vscode.commands.executeCommand('list.select');
 }
 
-export async function nerdTreeRecursivelyOpenNode() { nerdTreeNotImplemented(); }
+async function recursivelyOpenNode() { notImplemented(); }
 
-export async function nerdTreeCloseParentOfNode() {
+async function closeParentOfNode() {
     await vscode.commands.executeCommand('workbench.files.action.collapseExplorerFolders');
 }
 
-export async function nerdTreeCloseChildNodesRecursively() { nerdTreeNotImplemented(); }
+async function closeChildNodesRecursively() { notImplemented(); }
 
-export async function nerdTreeToggleHiddenFiles() { nerdTreeNotImplemented(); }
+async function toggleHiddenFiles() { notImplemented(); }
 
-export async function nerdTreeClose() {
+async function close() {
     if (vscode.workspace.getConfiguration().get('nerdtree.alwaysShowSidebar')) {
         await vscode.commands.executeCommand('workbench.action.focusActiveEditorGroup');
     } else {
@@ -258,8 +257,8 @@ export async function nerdTreeClose() {
     }
 }
 
-export async function nerdTreeZoom() { await nerdTreeNotImplemented(); }
+async function zoom() { await notImplemented(); }
 
-export async function nerdTreeHelp() { await nerdTreeNotImplemented(); }
+async function help() { await notImplemented(); }
 
-export function nerdTreeDeactivate() { }
+export function deactivate() { }
