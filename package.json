@@ -2,7 +2,7 @@
   "name": "nerdtreerevamped",
   "displayName": "NERDTree Revamped",
   "description": "Yet another NERDTree for Visual Studio Code",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "garthlester",
   "keywords": [
     "NERDTree",

@@ -52,7 +52,7 @@ export async function nerdTreeMenuMove() {
     const opts =
     {
         title: "New path",
-        value: original.toString(),
+        value: original.fsPath,
         placeHolder: "Enter a path",
         prompt: "Enter the new path",
         password: false,
