@@ -14,7 +14,7 @@ TODO: Currently not available in the marketplace
 
 1. Download the latest VSIX file from [releases](https://github.com/garthlester/NERDTree/releases)
 2. Open vscode, press Ctrl+Shift+x to open the extensions panel.
-3. Click the '...' button near the top of the panel and select 'Install from VSIX' and select the file that was downloaded in step 1.
+3. Click the '...' button near the top of the panel, select 'Install from VSIX', and select the file that was downloaded in step 1.
 
 ### From Source
 
@@ -72,7 +72,7 @@ Below are the default keybindings and functions of the original NERDTree for vim
 
 ### Bookmark Table Mappings
 
-† I'm not sure if the VSCode explorer has anything like NERDTree bookmarks. I may come back to these and investigate when the rest is functional, but for now, no bookmark features are officially not planned.
+† I'm not sure if the VSCode explorer has anything like NERDTree bookmarks. I may come back to these and investigate when the rest is functional, but for now, no bookmark features are officially planned.
 
 | Default Keybinding | Description | Status | VSCode Command |
 |---|---|---|---|
