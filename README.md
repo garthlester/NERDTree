@@ -39,7 +39,7 @@ If you are using the Vim plugin and want to use the default keybinding (Ctrl + n
 
 ## Features and Roadmap
 
-Below are the default keybindings and functions of the original NERDTree and their current state in this plugin
+Below are the default keybindings and functions of the original NERDTree for vim and their current state in this plugin. If you wish to set your own keybindings, the VSCode command is provided for each.
 
 ### File Node Mappings
 
@@ -47,7 +47,7 @@ Below are the default keybindings and functions of the original NERDTree and the
 
 ‡ To my knowledge, VSCode does not allow horizontal splits, so related features are not planned.
 
-| Command | Default Keybinding | Description | Status |
+| Default Keybinding | Description | Status | Command |
 |---|---|---|---|
 | nerdtree.openFile | o | open in prev window | working |
 | nerdtree.previewFile | go | preview | working |
@@ -61,7 +61,7 @@ Below are the default keybindings and functions of the original NERDTree and the
 
 ### Directory Node Mappings
 
-| Command | Default Keybinding | Description | Status |
+| Default Keybinding | Description | Status | Command |
 |---|---|---|---|
 | nerdtree.toggleNode | o | open or close node | planned |
 | nerdtree.recursivelyOpenNode | O | recursively open node | planned |
@@ -76,67 +76,64 @@ Below are the default keybindings and functions of the original NERDTree and the
 
 † I'm not sure if the VSCode explorer has anything like NERDTree bookmarks. I may come back to these and investigate when the rest is functional, but for now, no bookmark features are officially planned.
 
-| Command | Default Keybinding | Description | Status |
+| Default Keybinding | Description | Status | VSCode Command |
 |---|---|---|---|
-| nerdtree.notImplemented | o | open bookmark | not planned † |
-| nerdtree.notImplemented | go | preview file | not planned † |
-| nerdtree.notImplemented | go | find dir in new tree | not planned † |
-| nerdtree.notImplemented | t | open in new tab | not planned ⁎ |
-| nerdtree.notImplemented | T | open in new tab silently | not planned ⁎ |
-| nerdtree.notImplemented | i | open split | not planned †‡ |
-| nerdtree.notImplemented | gi | preview split | not planned †‡ |
-| nerdtree.notImplemented | s | open vsplit | not planned † |
-| nerdtree.notImplemented | gs | preview vsplit | not planned † |
-| nerdtree.notImplemented | enter | custom open | not planned † |
-| nerdtree.notImplemented | D | delete bookmark | not planned † |
+| o | open bookmark | not planned † | nerdtree.notImplemented |
+| go | preview file | not planned † | nerdtree.notImplemented |
+| go | find dir in new tree | not planned † | nerdtree.notImplemented |
+| t | open in new tab | not planned ⁎ | nerdtree.notImplemented |
+| T | open in new tab silently | not planned ⁎ | nerdtree.notImplemented |
+| i | open split | not planned †‡ | nerdtree.notImplemented |
+| gi | preview split | not planned †‡ | nerdtree.notImplemented |
+| s | open vsplit | not planned † | nerdtree.notImplemented |
+| gs | preview vsplit | not planned † | nerdtree.notImplemented |
+| enter | custom open | not planned † | nerdtree.notImplemented |
+| D | delete bookmark | not planned † | nerdtree.notImplemented |
 
 ### Tree navigation mappings
 
-| Command | Default Keybinding | Description | Status |
+| Default Keybinding | Description | Status | VSCode Command |
 |---|---|---|---|
-| nerdtree.notImplemented | C | change root tree node to selected dir | planned |
-| nerdtree.notImplemented | u | move tree root up a directory | planned |
-| nerdtree.notImplemented | U | move tree root up a directory but leave old root open | planned |
-| nerdtree.notImplemented | r | refresh cursor dir | not needed |
-| nerdtree.notImplemented | R | refresh current root | not needed |
-| nerdtree.notImplemented | m | show menu | working |
-| nerdtree.notImplemented | cd | change the CWD to the selected dir | planned |
-| nerdtree.notImplemented | CD | change tree root to CWD | planned |
+| C | change root tree node to selected dir | planned | nerdtree.notImplemented |
+| u | move tree root up a directory | planned | nerdtree.notImplemented |
+| U | move tree root up a directory but leave old root open | planned | nerdtree.notImplemented |
+| r | refresh cursor dir | not needed | nerdtree.notImplemented |
+| R | refresh current root | not needed | nerdtree.notImplemented |
+| m | show menu | working | nerdtree.notImplemented |
+| cd | change the CWD to the selected dir | planned | nerdtree.notImplemented |
+| CD | change tree root to CWD | planned | nerdtree.notImplemented |
 
 **Menu Sub-Commands**
 
 I'm not currently aware of how to spawn an interactive menu using the VSCode API, so I went back to Llam4u's approach of implementing these as chords. Type m followed by the keybinding below to use.
 
-| Command| Default Keybinding | Description | Status |
+| Default Keybinding | Description | Status | VSCode Command |
 |---|---|---|---|
-| nerdtree.menu.add | a | add a child node | working |
-| nerdtree.menu.move | m | move the current node | working |
-| nerdtree.menu.delete | d | delete the current node | working |
-| nerdtree.menu.reveal | r | reveal the current node in file manager | working |
-| nerdtree.menu.open | o | open the current node with system editor | working |
-| nerdtree.menu.copy | c | copy the current node | working |
-| nerdtree.menu.copyPath | p | copy path to the clipboard | working |
-| nerdtree.menu.list | l | list the current node | not planned |
-| nerdtree.menu.changePermissions | C | Change node permissions | not planned |
-| nerdtree.menu.runSystemCommand | s | Run system command in this directory | almost working |
+| a | add a child node | working | nerdtree.menu.add |
+| m | move the current node | working | nerdtree.menu.move |
+| d | delete the current node | working | nerdtree.menu.delete |
+| r | reveal the current node in file manager | working | nerdtree.menu.reveal |
+| o | open the current node with system editor | working | nerdtree.menu.open |
+| c | copy the current node | working | nerdtree.menu.copy |
+| p | copy path to the clipboard | working | nerdtree.menu.copyPath |
+| l | list the current node | not planned | nerdtree.menu.list |
+| C | Change node permissions | not planned | nerdtree.menu.changePermissions |
+| s | Run system command in this directory | almost working | nerdtree.menu.runSystemCommand |
 
 ### Tree filtering mappings
 
-| Command | Default Keybinding | Description (default value) | Status |
+| Default Keybinding | Description (default value) | Status | VSCode Command |
 |---|---|---|---|
-| nerdtree.toggleHiddenFiles | I | hidden files (off) | planned |
-| nerdtree.notImplemented | f | file filters (on) | not planned |
-| nerdtree.notImplemented | F | files (on) | not planned |
-| nerdtree.notImplemented | B | bookmarks (off) | not planned † |
-| nerdtree.notImplemented | FL | file lines (off) | not planned |
+| I | hidden files (off) | planned | nerdtree.toggleHiddenFiles |
+| f | file filters (on) | not planned | nerdtree.notImplemented |
+| F | files (on) | not planned | nerdtree.notImplemented |
+| B | bookmarks (off) | not planned † | nerdtree.notImplemented |
+| FL | file lines (off) | not planned | nerdtree.notImplemented |
 
 ### Other mappings
 
-| Command | Default Keybinding | Description (default value) | Status |
+| Default Keybinding | Description (default value) | Status | VSCode Command |
 |---|---|---|---|
-| nerdtree.close | q | close the NERDTree window | planned |
-| nerdtree.zoom | A | Zoom the NERDTree window | not planned |
-| nerdtree.help | ? | toggle help | planned |
-
-
-
+| q | close the NERDTree window | planned | nerdtree.close |
+| A | Zoom the NERDTree window | not planned | nerdtree.zoom |
+| ? | toggle help | planned | nerdtree.help |
