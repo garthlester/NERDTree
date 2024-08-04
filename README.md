@@ -101,12 +101,6 @@ Below are the default keybindings and functions of the original NERDTree and the
 
 I'm not currently aware of how to spawn an interactive menu in VSCode, so I went back to Llam4u's approach of implementing them as chords.
 
-There are some additional limitations:
-
-- In the original NERDTree, the copy command did the copying and the pasting, but I don't see a straightforward way to implement that behaviour given the limitations of VSCode. To compensate, I've added a separate paste command.
-
-- The move command on linux fills the role of both rename and cut/paste, however I can't find a way to do that in VSCode. Instead, `m` only renames, but I've added a separate cut command to make up for it.
-
 | Command| Default Keybinding | Description | Status |
 |---|---|---|---|
 | nerdtree.menu.add | a | add a child node | working |
@@ -115,8 +109,6 @@ There are some additional limitations:
 | nerdtree.menu.reveal | r | reveal the current node in file manager | planned |
 | nerdtree.menu.open | o | open the current node with system editor | not planned |
 | nerdtree.menu.copy | c | copy the current node | working |
-| nerdtree.menu.copy | x | cut the current node | working |
-| nerdtree.menu.paste | v | paste | working |
 | nerdtree.menu.copyPath | p | copy path to the clipboard | planned |
 | nerdtree.menu.list | l | list the current node | not planned |
 | nerdtree.menu.changePermissions | C | Change node permissions | not planned |
