@@ -181,25 +181,33 @@ export async function getFolder(uri: vscode.Uri): Promise<vscode.Uri> {
     //for the folder that contains it:
     const stats = await vscode.workspace.fs.stat(uri);
     if (!stats) {
-        throw URIError("Could not parse URI");
+        throw URIError("Could not parse URI " + uri.fsPath);
     }
 
     if (stats.type == vscode.FileType.File) {
         //TODO: I'm sure there's a more robust way to do this from vscode.workspace.fs
-        const dir = uri.fsPath.match('(.*\/).*');
+        //TODO: why won't this regex work!?!?
+        //const dir = uri.fsPath.match('(.*[\\\/]).*');
+        //if (dir) {
+            //return vscode.Uri.file(dir[0]);
+        //}
+        //else {
+            //throw URIError("Could not parse URI");
+        //}
 
-        if (dir) {
-            return vscode.Uri.file(dir[0]);
-        }
-        else {
-            throw URIError("Could not parse URI");
-        }
+        let unixEnd = uri.fsPath.lastIndexOf("/");
+        if (!unixEnd) { unixEnd = 0; }
+        let windEnd = uri.fsPath.lastIndexOf("\\");
+        if (!windEnd) { windEnd = 0; }
 
+        const end = Math.max(unixEnd, windEnd);
+        return vscode.Uri.file(uri.fsPath.slice(0,end));
     } else {
         return uri;
     }
 }
 
+//TODO: do I really need to be exporting all these functions, or just attach/detach?
 export async function nerdTreeOpenFile() {
     await vscode.commands.executeCommand('explorer.openAndPassFocus');
 }
