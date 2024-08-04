@@ -44,10 +44,21 @@ export async function nerdTreeNotImplemented() {
 export async function nerdTreeMenuAdd() {
     const original = await getPathOfExplorerSelection();
     const dir = await getFolder(original);
+
+    //fs is flexible enough that we could use / on both windows and linux, but we want to avoid confusing the user
+    let dirStr = dir.fsPath;
+    if (dirStr.includes("/")) {
+        dirStr = dirStr + "/";
+    } else {
+        dirStr = dirStr + "\\";
+    }
+
     const opts =
     {
         title: "Add:",
-        value: dir.fsPath,
+        //fs seems ok with / even on windows, so no need to switch between the two slashes on the input side
+        //TODO: Still may want to just to avoid confusing the user though
+        value: dirStr,
         placeHolder: "Enter a path",
         prompt: "Enter the file name",
         password: false,
@@ -189,10 +200,10 @@ export async function getFolder(uri: vscode.Uri): Promise<vscode.Uri> {
         //TODO: why won't this regex work!?!?
         //const dir = uri.fsPath.match('(.*[\\\/]).*');
         //if (dir) {
-            //return vscode.Uri.file(dir[0]);
+        //return vscode.Uri.file(dir[0]);
         //}
         //else {
-            //throw URIError("Could not parse URI");
+        //throw URIError("Could not parse URI");
         //}
 
         let unixEnd = uri.fsPath.lastIndexOf("/");
@@ -201,7 +212,7 @@ export async function getFolder(uri: vscode.Uri): Promise<vscode.Uri> {
         if (!windEnd) { windEnd = 0; }
 
         const end = Math.max(unixEnd, windEnd);
-        return vscode.Uri.file(uri.fsPath.slice(0,end));
+        return vscode.Uri.file(uri.fsPath.slice(0, end));
     } else {
         return uri;
     }
