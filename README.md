@@ -13,7 +13,8 @@ TODO: Currently not available in the marketplace
 ### From VSIX
 
 1. Download the latest VSIX file from [releases](https://github.com/garthlester/NERDTree/releases)
-2. Open vscode, press Ctrl+Shift+x to open the extensions panel. Click the '...' button near the top of the panel and select 'Install from VSIX' and navigate to the .VSIX file that was generated in the previous step.
+2. Open vscode, press Ctrl+Shift+x to open the extensions panel.
+3. Click the '...' button near the top of the panel and select 'Install from VSIX' and select the file that was downloaded in step 1.
 
 ### From Source
 
@@ -29,11 +30,8 @@ TODO: Currently not available in the marketplace
 If you are using the Vim plugin and want to use the default keybinding (Ctrl + n) to open NERDTree, you will need to add the following to your settings.json file:
 
 ```json
-{
-    ...
-    "vim.handleKeys": {
-    "<C-n>": false
-    }
+"vim.handleKeys": {
+"<C-n>": false
 }
 ```
 
