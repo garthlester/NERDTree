@@ -43,6 +43,10 @@ Below are the default keybindings and functions of the original NERDTree and the
 
 ### File Node Mappings
 
+⁎ VSCode tabs more or less correspond to vim buffers. VSCode does not have a corresponding feature to vim tabs, so NERDTree features related to vim tabs cannot be implemented.
+
+‡ To my knowledge, VSCode does not allow horizontal splits, so related features are not planned.
+
 | Command | Default Keybinding | Description | Status |
 |---|---|---|---|
 | nerdtree.openFile | o | open in prev window | working |
@@ -70,6 +74,8 @@ Below are the default keybindings and functions of the original NERDTree and the
 
 ### Bookmark Table Mappings
 
+† I'm not sure if the VSCode explorer has anything like NERDTree bookmarks. I may come back to these and investigate when the rest is functional, but for now, no bookmark features are officially planned.
+
 | Command | Default Keybinding | Description | Status |
 |---|---|---|---|
 | nerdtree.notImplemented | o | open bookmark | not planned † |
@@ -88,18 +94,18 @@ Below are the default keybindings and functions of the original NERDTree and the
 
 | Command | Default Keybinding | Description | Status |
 |---|---|---|---|
-| nerdtree.notImplemented | C | change root tree node to selected dir | not planned |
-| nerdtree.notImplemented | u | move tree root up a directory | not planned |
-| nerdtree.notImplemented | U | move tree root up a directory but leave old root open | not planned |
-| nerdtree.notImplemented | r | refresh cursor dir | not planned |
-| nerdtree.notImplemented | R | refresh current root | not planned |
-| nerdtree.notImplemented | m | show menu | planned |
-| nerdtree.notImplemented | cd | change the CWD to the selected dir | not planned |
-| nerdtree.notImplemented | CD | change tree root to CWD | not planned |
+| nerdtree.notImplemented | C | change root tree node to selected dir | planned |
+| nerdtree.notImplemented | u | move tree root up a directory | planned |
+| nerdtree.notImplemented | U | move tree root up a directory but leave old root open | planned |
+| nerdtree.notImplemented | r | refresh cursor dir | not needed |
+| nerdtree.notImplemented | R | refresh current root | not needed |
+| nerdtree.notImplemented | m | show menu | working |
+| nerdtree.notImplemented | cd | change the CWD to the selected dir | planned |
+| nerdtree.notImplemented | CD | change tree root to CWD | planned |
 
 **Menu Sub-Commands**
 
-I'm not currently aware of how to spawn an interactive menu in VSCode, so I went back to Llam4u's approach of implementing them as chords.
+I'm not currently aware of how to spawn an interactive menu using the VSCode API, so I went back to Llam4u's approach of implementing these as chords. Type m followed by the keybinding below to use.
 
 | Command| Default Keybinding | Description | Status |
 |---|---|---|---|
@@ -121,7 +127,7 @@ I'm not currently aware of how to spawn an interactive menu in VSCode, so I went
 | nerdtree.toggleHiddenFiles | I | hidden files (off) | planned |
 | nerdtree.notImplemented | f | file filters (on) | not planned |
 | nerdtree.notImplemented | F | files (on) | not planned |
-| nerdtree.notImplemented | B | bookmarks (off) | not planned |
+| nerdtree.notImplemented | B | bookmarks (off) | not planned † |
 | nerdtree.notImplemented | FL | file lines (off) | not planned |
 
 ### Other mappings
@@ -132,8 +138,5 @@ I'm not currently aware of how to spawn an interactive menu in VSCode, so I went
 | nerdtree.zoom | A | Zoom the NERDTree window | not planned |
 | nerdtree.help | ? | toggle help | planned |
 
-⁎ VSCode tabs more or less correspond to vim buffers. VSCode does not have a corresponding feature to vim tabs, so NERDTree features related to vim tabs cannot be implemented.
 
-† I'm not sure if the VSCode explorer has anything like NERDTree bookmarks. I may come back to these and investigate when the rest is functional
 
-‡ To my knowledge, VSCode does not allow horizontal splits, so related features are not planned.
