@@ -1,31 +1,35 @@
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-    nerdTreeCommand(context, 'nerdtree.notImplemented', nerdTreeNotImplemented);
-    nerdTreeCommand(context, 'nerdtree.openFile', nerdTreeOpenFile);
-    nerdTreeCommand(context, 'nerdtree.previewFile', nerdTreePreviewFile);
-    nerdTreeCommand(context, 'nerdtree.openVSplit', nerdTreeOpenVSplit);
-    nerdTreeCommand(context, 'nerdtree.previewVSplit', nerdTreePreviewVSplit);
-    nerdTreeCommand(context, 'nerdtree.toggleNode', nerdTreeToggleNode);
-    nerdTreeCommand(context, 'nerdtree.recursivelyOpenNode', nerdTreeRecursivelyOpenNode);
-    nerdTreeCommand(context, 'nerdtree.closeParentOfNode', nerdTreeCloseParentOfNode);
-    nerdTreeCommand(context, 'nerdtree.recursivelyCloseChildren', nerdTreeCloseChildNodesRecursively);
-    nerdTreeCommand(context, 'nerdtree.toggleHiddenFiles', nerdTreeToggleHiddenFiles);
-    nerdTreeCommand(context, 'nerdtree.close', nerdTreeClose);
-    nerdTreeCommand(context, 'nerdtree.zoom', nerdTreeZoom);
-    nerdTreeCommand(context, 'nerdtree.help', nerdTreeHelp);
-    nerdTreeCommand(context, 'nerdtree.menu.add', nerdTreeMenuAdd);
-    nerdTreeCommand(context, 'nerdtree.menu.move', nerdTreeMenuMove);
-    nerdTreeCommand(context, 'nerdtree.menu.delete', nerdTreeMenuDelete);
-    nerdTreeCommand(context, 'nerdtree.menu.reveal', nerdTreeMenuReveal);
-    nerdTreeCommand(context, 'nerdtree.menu.open', nerdTreeMenuOpen);
-    nerdTreeCommand(context, 'nerdtree.menu.copy', nerdTreeMenuCopy);
-    nerdTreeCommand(context, 'nerdtree.menu.cut', nerdTreeMenuCut);
-    nerdTreeCommand(context, 'nerdtree.menu.paste', nerdTreeMenuPaste);
-    nerdTreeCommand(context, 'nerdtree.menu.copyPath', nerdTreeMenuCopyPath);
-    nerdTreeCommand(context, 'nerdtree.menu.list', nerdTreeMenuList);
-    nerdTreeCommand(context, 'nerdtree.menu.changePermissions', nerdTreeMenuChangePermissions);
-    nerdTreeCommand(context, 'nerdtree.menu.runSystemCommand', nerdTreeMenuRunSystemCommand);
+    try {
+        nerdTreeCommand(context, 'nerdtree.notImplemented', nerdTreeNotImplemented);
+        nerdTreeCommand(context, 'nerdtree.openFile', nerdTreeOpenFile);
+        nerdTreeCommand(context, 'nerdtree.previewFile', nerdTreePreviewFile);
+        nerdTreeCommand(context, 'nerdtree.openVSplit', nerdTreeOpenVSplit);
+        nerdTreeCommand(context, 'nerdtree.previewVSplit', nerdTreePreviewVSplit);
+        nerdTreeCommand(context, 'nerdtree.toggleNode', nerdTreeToggleNode);
+        nerdTreeCommand(context, 'nerdtree.recursivelyOpenNode', nerdTreeRecursivelyOpenNode);
+        nerdTreeCommand(context, 'nerdtree.closeParentOfNode', nerdTreeCloseParentOfNode);
+        nerdTreeCommand(context, 'nerdtree.recursivelyCloseChildren', nerdTreeCloseChildNodesRecursively);
+        nerdTreeCommand(context, 'nerdtree.toggleHiddenFiles', nerdTreeToggleHiddenFiles);
+        nerdTreeCommand(context, 'nerdtree.close', nerdTreeClose);
+        nerdTreeCommand(context, 'nerdtree.zoom', nerdTreeZoom);
+        nerdTreeCommand(context, 'nerdtree.help', nerdTreeHelp);
+        nerdTreeCommand(context, 'nerdtree.menu.add', nerdTreeMenuAdd);
+        nerdTreeCommand(context, 'nerdtree.menu.move', nerdTreeMenuMove);
+        nerdTreeCommand(context, 'nerdtree.menu.delete', nerdTreeMenuDelete);
+        nerdTreeCommand(context, 'nerdtree.menu.reveal', nerdTreeMenuReveal);
+        nerdTreeCommand(context, 'nerdtree.menu.open', nerdTreeMenuOpen);
+        nerdTreeCommand(context, 'nerdtree.menu.copy', nerdTreeMenuCopy);
+        nerdTreeCommand(context, 'nerdtree.menu.cut', nerdTreeMenuCut);
+        nerdTreeCommand(context, 'nerdtree.menu.paste', nerdTreeMenuPaste);
+        nerdTreeCommand(context, 'nerdtree.menu.copyPath', nerdTreeMenuCopyPath);
+        nerdTreeCommand(context, 'nerdtree.menu.list', nerdTreeMenuList);
+        nerdTreeCommand(context, 'nerdtree.menu.changePermissions', nerdTreeMenuChangePermissions);
+        nerdTreeCommand(context, 'nerdtree.menu.runSystemCommand', nerdTreeMenuRunSystemCommand);
+    } catch (error) {
+        vscode.commands.executeCommand('vscode.window.showErrorMessage', `${error}`);
+    }
 }
 
 //Just to reduce boilerplate
