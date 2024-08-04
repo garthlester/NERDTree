@@ -49,28 +49,28 @@ Below are the default keybindings and functions of the original NERDTree for vim
 
 | Default Keybinding | Description | Status | Command |
 |---|---|---|---|
-| nerdtree.openFile | o | open in prev window | working |
-| nerdtree.previewFile | go | preview | working |
-| nerdtree.notImplemented | t | open in new tab | not planned ⁎ |
-| nerdtree.notImplemented | T | open in new tab silenty | not planned ⁎ |
-| nerdtree.notImplemented | i | open split | not planned ‡ |
-| nerdtree.notImplemented | gi | preview split | not planned ‡ |
-| nerdtree.openVSplit | s | open vsplit | working |
-| nerdtree.previewVSplit | gs | preview vsplit | working |
-| nerdtree.openFile | enter | custom open | working |
+| o | open in prev window | working | nerdtree.openFile |
+| go | preview | working | nerdtree.previewFile |
+| t | open in new tab | not planned ⁎ | nerdtree.notImplemented |
+| T | open in new tab silenty | not planned ⁎ | nerdtree.notImplemented |
+| i | open split | not planned ‡ | nerdtree.notImplemented |
+| gi | preview split | not planned ‡ | nerdtree.notImplemented |
+| s | open vsplit | working | nerdtree.openVSplit |
+| gs | preview vsplit | working | nerdtree.previewVSplit |
+| enter | custom open | working | nerdtree.openFile |
 
 ### Directory Node Mappings
 
 | Default Keybinding | Description | Status | Command |
 |---|---|---|---|
-| nerdtree.toggleNode | o | open or close node | planned |
-| nerdtree.recursivelyOpenNode | O | recursively open node | planned |
-| nerdtree.notImplemented | t | open in new tab | not planned ⁎ |
-| nerdtree.notImplemented | T | open in new tab silently | not planned ⁎ |
-| nerdtree.toggleNode | enter | custom open | working |
-| nerdtree.closeParentOfNode | x | close parent of node | working |
-| nerdtree.recursivelyCloseChildren | X | close all child nodes of current node recursively | planned |
-| nerdtree.notImplemented | e | explore selected dir | not planned |
+| o | open or close node | planned | nerdtree.toggleNode |
+| O | recursively open node | planned | nerdtree.recursivelyOpenNode |
+| t | open in new tab | not planned ⁎ | nerdtree.notImplemented |
+| T | open in new tab silently | not planned ⁎ | nerdtree.notImplemented |
+| enter | custom open | working | nerdtree.toggleNode |
+| x | close parent of node | working | nerdtree.closeParentOfNode |
+| X | close all child nodes of current node recursively | planned | nerdtree.recursivelyCloseChildren |
+| e | explore selected dir | not planned | nerdtree.notImplemented |
 
 ### Bookmark Table Mappings
 
