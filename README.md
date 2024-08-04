@@ -112,7 +112,7 @@ I'm not currently aware of how to spawn an interactive menu in VSCode, so I went
 | nerdtree.menu.copyPath | p | copy path to the clipboard | working |
 | nerdtree.menu.list | l | list the current node | not planned |
 | nerdtree.menu.changePermissions | C | Change node permissions | not planned |
-| nerdtree.menu.runSystemCommand | s | Run system command in this directory | working |
+| nerdtree.menu.runSystemCommand | s | Run system command in this directory | almost working |
 
 ### Tree filtering mappings
 
