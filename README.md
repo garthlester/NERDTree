@@ -74,7 +74,7 @@ Below are the default keybindings and functions of the original NERDTree for vim
 
 ### Bookmark Table Mappings
 
-† I'm not sure if the VSCode explorer has anything like NERDTree bookmarks. I may come back to these and investigate when the rest is functional, but for now, no bookmark features are officially planned.
+† I'm not sure if the VSCode explorer has anything like NERDTree bookmarks. I may come back to these and investigate when the rest is functional, but for now, no bookmark features are officially not planned.
 
 | Default Keybinding | Description | Status | VSCode Command |
 |---|---|---|---|
@@ -99,13 +99,13 @@ Below are the default keybindings and functions of the original NERDTree for vim
 | U | move tree root up a directory but leave old root open | planned | nerdtree.notImplemented |
 | r | refresh cursor dir | not needed | nerdtree.notImplemented |
 | R | refresh current root | not needed | nerdtree.notImplemented |
-| m | show menu | working | nerdtree.notImplemented |
+| m | show menu (see next table) | working | nerdtree.notImplemented |
 | cd | change the CWD to the selected dir | planned | nerdtree.notImplemented |
 | CD | change tree root to CWD | planned | nerdtree.notImplemented |
 
 **Menu Sub-Commands**
 
-I'm not currently aware of how to spawn an interactive menu using the VSCode API, so I went back to Llam4u's approach of implementing these as chords. Type m followed by the keybinding below to use.
+I'm not currently aware of how to spawn an interactive menu using the VSCode API, so I went back to Llam4u's approach of implementing these as chords. Type `m` followed by a keybinding below to use.
 
 | Default Keybinding | Description | Status | VSCode Command |
 |---|---|---|---|
