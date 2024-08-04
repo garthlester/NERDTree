@@ -53,7 +53,7 @@ Below are the default keybindings and functions of the original NERDTree and the
 | nerdtree.notImplemented | gi | preview split | not planned ‡ |
 | nerdtree.openVSplit | s | open vsplit | working |
 | nerdtree.previewVSplit | gs | preview vsplit | working |
-| nerdtree.openFile | <CR> | custom open | working |
+| nerdtree.openFile | enter | custom open | working |
 
 ### Directory Node Mappings
 
@@ -63,7 +63,7 @@ Below are the default keybindings and functions of the original NERDTree and the
 | nerdtree.recursivelyOpenNode | O | recursively open node | planned |
 | nerdtree.notImplemented | t | open in new tab | not planned ⁎ |
 | nerdtree.notImplemented | T | open in new tab silently | not planned ⁎ |
-| nerdtree.toggleNode | <CR> | custom open | working |
+| nerdtree.toggleNode | enter | custom open | working |
 | nerdtree.closeParentOfNode | x | close parent of node | working |
 | nerdtree.recursivelyCloseChildren | X | close all child nodes of current node recursively | planned |
 | nerdtree.notImplemented | e | explore selected dir | not planned |
@@ -81,7 +81,7 @@ Below are the default keybindings and functions of the original NERDTree and the
 | nerdtree.notImplemented | gi | preview split | not planned †‡ |
 | nerdtree.notImplemented | s | open vsplit | not planned † |
 | nerdtree.notImplemented | gs | preview vsplit | not planned † |
-| nerdtree.notImplemented | <CR> | custom open | not planned † |
+| nerdtree.notImplemented | enter | custom open | not planned † |
 | nerdtree.notImplemented | D | delete bookmark | not planned † |
 
 ### Tree navigation mappings
