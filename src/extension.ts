@@ -96,7 +96,7 @@ export async function nerdTreeMenuDelete() {
     const path = await getPathOfExplorerSelection();
     const opts =
     {
-        title: "Move:",
+        title: "Delete:",
         placeHolder: "Enter a path",
         prompt: "Are you sure you want to delete " + path.fsPath + " yN",
         password: false,
@@ -123,7 +123,7 @@ export async function nerdTreeMenuCopy() {
     const original = await getPathOfExplorerSelection();
     const opts =
     {
-        title: "Copy",
+        title: "Copy:",
         value: original.fsPath,
         placeHolder: "Enter a path",
         prompt: "Enter the new path",
@@ -149,7 +149,7 @@ export async function nerdTreeMenuChangePermissions() { nerdTreeNotImplemented()
 export async function nerdTreeMenuRunSystemCommand() {
     const opts =
     {
-        title: "Run",
+        title: "Run:",
         value: "",
         placeHolder: ">",
         prompt: "Enter a command to run",
